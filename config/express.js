@@ -24,12 +24,18 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
+  // Vendor stuff
+  app.use('/js/jquery', express.static(config.root + '/public/components/jquery/dist'));
+  app.use('/js/knockout', express.static(config.root + '/public/components/knockout/dist'));
+  app.use('/js/lodash', express.static(config.root + '/public/components/lodash/dist'));
+
   var controllersPath = path.join(__dirname, '../app/controllers');
   fs.readdirSync(controllersPath).forEach(function (file) {
     if (file.search(/\.js$/) >= 0) {
       require(controllersPath + '/' + file)(app);
     }
   });
+
 
   app.use(function (req, res, next) {
     var err = new Error('Not Found');

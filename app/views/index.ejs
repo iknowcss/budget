@@ -1,6 +1,84 @@
 <% include header %>
 
-  <h1><%-title %></h1>
-  <p>Welcome to <%-title %></p>
+  <script>
+    $(function () {
+      function LineItem(options) {
+        if (!(this instanceof LineItem)) {
+          return new LineItem(options);
+        }
+
+        var self = this;
+        self.description = options.description;
+        self.amount = options.amount;
+        self.frequency = options.frequency;
+      }
+
+      function Category(options) {
+        if (!(this instanceof Category)) {
+          return new Category(options);
+        }
+
+        var self = this;
+        self.icon = options.icon;
+        self.description = options.description;
+        self.color = options.color;
+        self.lineItems = _.map(options.lineItems, LineItem);
+      }
+
+      function Budget() {
+        var self = this;
+        self.categories = _.map([
+          {
+            icon: 'house',
+            description: 'Home',
+            color: '#aaccaa',
+            lineItems: [
+              {
+                description: 'Rent',
+                amount: 150000,
+                frequency: 'mo.'
+              }
+            ]
+          },
+          {
+            icon: 'car',
+            description: 'Car',
+            color: '#aaaacc',
+            lineItems: [
+              {
+                description: 'Gas',
+                amount: 3000,
+                frequency: 'wk.'
+              }
+            ]
+          }
+        ], Category);
+      }
+
+      ko.applyBindings(new Budget()); 
+    });
+  </script>
+
+  <section class="budget"
+      data-bind="foreach: categories">
+
+    <div class="budget-category">
+      <div class="budget-category-head">
+        <i data-bind="css: 'icon-' + icon"></i>
+        <span data-bind="text: description"></span>  
+      </div>
+      <div class="budget-category-body"
+          data-bind="foreach: lineItems">
+
+        <div class="budget-category-body-line-item">
+          <div class="line-item-description" data-bind="text: description">Rent</div>
+          <div class="line-item-amount" data-bind="text: amount">1500.00</div>
+          <div class="line-item-frequency" data-bind="text: frequency">mo.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
 
 <% include footer %>
