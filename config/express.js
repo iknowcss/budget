@@ -26,7 +26,7 @@ module.exports = function(app, config) {
 
   var controllersPath = path.join(__dirname, '../app/controllers');
   fs.readdirSync(controllersPath).forEach(function (file) {
-    if (file.match(/\.js$/) >= 0) {
+    if (file.search(/\.js$/) >= 0) {
       require(controllersPath + '/' + file)(app);
     }
   });
