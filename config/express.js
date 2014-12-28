@@ -25,6 +25,8 @@ module.exports = function(app, config) {
   app.use(methodOverride());
 
   // Vendor stuff
+  app.use('/js/require', express.static(config.root + '/public/components/requirejs'));
+  app.use('/js/require-text', express.static(config.root + '/public/components/requirejs-text'));
   app.use('/js/jquery', express.static(config.root + '/public/components/jquery/dist'));
   app.use('/js/knockout', express.static(config.root + '/public/components/knockout/dist'));
   app.use('/js/lodash', express.static(config.root + '/public/components/lodash/dist'));

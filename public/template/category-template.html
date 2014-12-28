@@ -1,0 +1,13 @@
+<div class="budget-category">
+  <div class="budget-category-head">
+    <i data-bind="css: 'icon-' + icon"></i>
+    <span data-bind="text: description"></span>  
+  </div>
+  <div class="budget-category-body"
+      data-bind="foreach: lineItems">
+    <!-- ko component: {
+      name: 'line-item-' + mode(),
+      params: $data
+    } --><!-- /ko -->
+  </div>
+</div>
