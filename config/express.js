@@ -29,6 +29,7 @@ module.exports = function(app, config) {
   app.use('/js/require-text', express.static(config.root + '/public/components/requirejs-text'));
   app.use('/js/jquery', express.static(config.root + '/public/components/jquery/dist'));
   app.use('/js/knockout', express.static(config.root + '/public/components/knockout/dist'));
+  app.use('/js/knockout-postbox', express.static(config.root + '/public/components/knockout-postbox/build'));
   app.use('/js/lodash', express.static(config.root + '/public/components/lodash/dist'));
 
   var controllersPath = path.join(__dirname, '../app/controllers');

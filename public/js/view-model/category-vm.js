@@ -10,6 +10,7 @@ define(['knockout', 'lodash', 'vm/line-item-vm'], function (ko, _, LineItem) {
     self.color = options.color;
     self.description = ko.observable(options.description);
     self.lineItems = ko.observableArray(_.map(options.lineItems, LineItem));
+    self.newLineItem = new LineItem();
   }
 
   return Category;

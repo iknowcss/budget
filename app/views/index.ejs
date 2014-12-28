@@ -1,6 +1,13 @@
 <% include header %>
 
   <script>
+    function generateUuid() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      }); 
+    }
+
     require([
       'knockout',
       'lodash',
@@ -14,10 +21,12 @@
           color: '#aaccaa',
           lineItems: [
             {
+              id: generateUuid(),
               description: 'Rent',
               amount: 150000,
               frequency: 'mo.'
             }, {
+              id: generateUuid(),
               description: 'SDGE',
               amount: 13000,
               frequency: 'mo.'
@@ -29,6 +38,7 @@
           color: '#aaaacc',
           lineItems: [
             {
+              id: generateUuid(),
               description: 'Gas',
               amount: 5000,
               frequency: 'wk.'
@@ -48,13 +58,9 @@
   </script>
 
   <section class="budget"
-      data-bind="foreach: categories">
-
-    <!-- ko component: {
-      name: 'category',
-      params: $data
-    } --><!-- /ko -->
-
-  </section>
+      data-bind="component: {
+        name: 'categories',
+        params: categories
+      }"></section>
 
 <% include footer %>

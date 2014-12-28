@@ -1,0 +1,26 @@
+<!-- ko foreach: $data -->
+
+<div class="budget-category-body-line-item">
+  <div class="line-item-description">
+    <input type="text"
+        data-bind="value: description,
+                   event: { focus: startEdit }">
+  </div>
+  <div class="line-item-amount">
+    <input type="text"
+        data-bind="value: amountFormatted,
+                   event: { focus: startEdit }">
+  </div>
+  <div class="line-item-frequency">
+    <span data-bind="text: frequency, visible: mode() == 'view'"></span>
+    <select
+        data-bind="visible: mode() == 'edit',
+                   value: frequency,
+                   options: freqOptions,
+                   optionsText: 'text',
+                   optionsValue: 'value'">
+    </select>
+  </div>
+</div>
+
+<!-- /ko -->
