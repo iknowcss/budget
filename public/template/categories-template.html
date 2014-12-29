@@ -2,14 +2,30 @@
 
 <div class="budget-category">
   <div class="budget-category-head">
-    <i data-bind="css: 'icon-' + icon"></i>
-    <span data-bind="text: description"></span>  
+    <div class="budget-category-head-title">
+      <i data-bind="css: 'icon-' + icon"></i>
+      <span data-bind="text: description"></span>
+    </div>
+    <div>
+      <span data-bind="text: totalFormatted"></span>
+    </div>
   </div>
-  <div class="budget-category-body"
-      data-bind="component: {
-        name: 'line-items',
-        params: lineItems
-      }"></div>
+  <div class="budget-category-body">
+    <!-- ko foreach: lineItems -->
+      <!-- ko component: {
+        name: 'line-item',
+        params: $data
+      } --><!-- /ko -->
+    <!-- /ko -->
+
+    <form data-bind="submit: addLineItem">
+      <!-- ko component: {
+        name: 'line-item',
+        params: emptyLineItem
+      } --><!-- /ko -->
+      <button type="submit" style="display: none;"></button>
+    </form>
+  </div>
 </div>
 
 <!-- /ko -->

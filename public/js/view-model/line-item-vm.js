@@ -1,12 +1,13 @@
-define(['knockout', 'knockout-postbox'], function (ko) {
+define(['lodash', 'knockout', 'knockout-postbox'], function (_, ko) {
 
   var FREQ_OPTIONS = [
-    { text: 'hour',   value: 'hr.' },
     { text: 'day',    value: 'day' },
     { text: 'week',   value: 'wk.' },
     { text: 'month',  value: 'mo.' },
     { text: 'year',   value: 'yr.' }
   ];
+
+  var lineItemFocus = ko.observable().subscribeTo('line-item-focus');
 
   function LineItem(options) {
     if (!(this instanceof LineItem)) {
@@ -14,8 +15,16 @@ define(['knockout', 'knockout-postbox'], function (ko) {
     }
 
     var self = this;
+    options = _.extend({}, options);
     self.id = options.id;
-    self.mode = ko.observable('view');
+    self.descriptionHasFocus = ko.observable(false);
+    self.mode = ko.computed(function () {
+      if (lineItemFocus() == self.id) {
+        return 'edit';
+      } else {
+        return 'view';
+      }
+    });
     self.description = ko.observable(options.description);
     self.amount = ko.observable(options.amount).extend({ notify: 'always' });
     self.frequency = ko.observable(options.frequency);
@@ -38,14 +47,6 @@ define(['knockout', 'knockout-postbox'], function (ko) {
     self.startEdit = function () {
       ko.postbox.publish('line-item-focus', self.id);
     };
-
-    ko.postbox.subscribe('line-item-focus', function (id) {
-      if (id == self.id) {
-        self.mode('edit');
-      } else {
-        self.mode('view');
-      }
-    });
   }
 
   return LineItem;

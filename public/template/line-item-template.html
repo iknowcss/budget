@@ -1,9 +1,8 @@
-<!-- ko foreach: $data -->
-
 <div class="budget-category-body-line-item">
   <div class="line-item-description">
     <input type="text"
-        data-bind="value: description,
+        data-bind="hasFocus: descriptionHasFocus,
+                   value: description,
                    event: { focus: startEdit }">
   </div>
   <div class="line-item-amount">
@@ -22,5 +21,3 @@
     </select>
   </div>
 </div>
-
-<!-- /ko -->
