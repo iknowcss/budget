@@ -1,4 +1,8 @@
-define(['knockout', 'vm/line-item-vm'], function (ko, LineItem) {
+define([
+  'knockout',
+  'util/string-util',
+  'vm/line-item-vm'
+], function (ko, stringUtil, LineItem) {
 
   function EmptyLineItem() {
     var self = new LineItem();
@@ -6,7 +10,7 @@ define(['knockout', 'vm/line-item-vm'], function (ko, LineItem) {
     self.mode = ko.observable('edit');
 
     self.reset = function () {
-      self.id = generateUuid();
+      self.id = stringUtil.generateUuid();
       self.description('');
       self.amount(0);
       self.frequency('mo.');

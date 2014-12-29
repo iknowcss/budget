@@ -1,58 +1,17 @@
 <% include header %>
 
-  <script>
-    function generateUuid() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-        return v.toString(16);
-      }); 
-    }
-
-    require([
+  <script>require([
       'knockout',
       'lodash',
-      'vm/category-vm',
-      'vm/line-item-vm'
-    ], function (ko, _, Category, LineItem) {
-      var rawData = [
-        {
-          icon: 'house',
-          description: 'Home',
-          color: '#aaccaa',
-          lineItems: [
-            {
-              id: generateUuid(),
-              description: 'Rent',
-              amount: 150000,
-              frequency: 'mo.'
-            }, {
-              id: generateUuid(),
-              description: 'SDGE',
-              amount: 13000,
-              frequency: 'mo.'
-            }
-          ]
-        }, {
-          icon: 'car',
-          description: 'Car',
-          color: '#aaaacc',
-          lineItems: [
-            {
-              id: generateUuid(),
-              description: 'Gas',
-              amount: 5000,
-              frequency: 'wk.'
-            }
-          ]
-        }
-      ];
-
-      var viewModel = {
-        categories: _.map(rawData, Category)
-      };
+      'vm/budget-vm'
+    ], function (ko, _, Budget) {
+      var viewModel = new Budget({
+        categoriesUrl: '/budget/categories'
+      });
 
       $(function () {
         ko.applyBindings(viewModel);
+
       });
     });
   </script>
