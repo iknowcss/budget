@@ -52,6 +52,11 @@ module.exports = function (grunt) {
           cleanBowerDir: true
         }
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
     }
   });
 
