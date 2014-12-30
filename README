@@ -1,0 +1,9 @@
+Run the app
+-----------
+
+    grunt
+
+Test the app
+------------
+
+    grunt karma

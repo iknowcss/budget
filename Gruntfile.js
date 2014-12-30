@@ -79,4 +79,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['bower', 'develop', 'watch']);
+  grunt.registerTask('test', function () {
+    grunt.config.set('karma.unit.singleRun', true);
+    grunt.task.run('karma');
+  });
 };
