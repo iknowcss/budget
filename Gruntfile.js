@@ -36,6 +36,21 @@ module.exports = function (grunt) {
           'app/views/**/*.ejs'
         ],
         options: { livereload: reloadPort }
+      },
+      lib: {
+        files: [
+          'bower.json'
+        ],
+        tasks: ['bower']
+      }
+    },
+    bower: {
+      install: {
+        options: {
+          targetDir: 'public/js/lib',
+          cleanTargetDir: true,
+          cleanBowerDir: true
+        }
       }
     }
   });
@@ -58,5 +73,5 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['develop', 'watch']);
+  grunt.registerTask('default', ['bower', 'develop', 'watch']);
 };

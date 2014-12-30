@@ -1,3 +1,4 @@
 node_modules/
-public/components
+lib
 .sass-cache
+public/js/lib
