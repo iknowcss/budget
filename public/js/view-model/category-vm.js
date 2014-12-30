@@ -5,6 +5,8 @@ define([
   'vm/empty-line-item-vm'
 ], function (ko, _, LineItem, EmptyLineItem) {
 
+  /// - Constructor ------------------------------------------------------------
+
   function Category(options) {
     if (!(this instanceof Category)) {
       return new Category(options);
@@ -38,6 +40,8 @@ define([
       }
     };
   }
+
+  /// - Export -----------------------------------------------------------------
 
   return Category;
 
