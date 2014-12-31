@@ -1,4 +1,7 @@
 node_modules/
 lib
-.sass-cache
 public/js/lib
+test/coverage
+
+.sass-cache
+.DS_Store
