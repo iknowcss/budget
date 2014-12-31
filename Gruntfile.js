@@ -16,7 +16,8 @@ module.exports = function (grunt) {
 
     env: {
       coverage: {
-        INSTRUMENTED_CODE_DIR: 'test/coverage/instrument/'
+        SERVER_INSTRUMENTED_CODE_DIR: 'test/coverage/server/instrument',
+        UI_INCLUDE_COVERAGE: true
       }
     },
 
@@ -65,7 +66,7 @@ module.exports = function (grunt) {
     bower: {
       install: {
         options: {
-          targetDir: 'public/js/lib',
+          targetDir: 'public/lib',
           cleanTargetDir: true,
           cleanBowerDir: true
         }
@@ -91,27 +92,27 @@ module.exports = function (grunt) {
       }
     },
 
-    // - Istanbul coverage -----------------------------------------------------
+    // - Server coverage -------------------------------------------------------
 
     instrument: {
-      files: ['app/**/*.js', 'public/js/**/*.js'],
+      files: ['app/**/*.js'],
       options: {
         lazy: false,
-        basePath: 'test/coverage/instrument/'
+        basePath: 'test/coverage/server/instrument/'
       }
     },
 
     storeCoverage: {
       options: {
-        dir: 'test/coverage/reports'
+        dir: 'test/coverage/server/reports'
       }
     },
 
     makeReport: {
-      src: 'test/coverage/reports/**/*.json',
+      src: 'test/coverage/server/reports/**/*.json',
       options: {
         type: 'lcov',
-        dir: 'test/coverage/reports',
+        dir: 'test/coverage/server/reports',
         print: 'detail'
       }
     }

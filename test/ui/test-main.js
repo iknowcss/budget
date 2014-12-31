@@ -20,10 +20,10 @@ requirejs.config({
     'util'              : '/base/public/js/util',
 
     // Libraries
-    'knockout'          : '/base/public/js/lib/knockout/knockout',
-    'knockout-postbox'  : '/base/public/js/lib/knockout-postbox/knockout-postbox.min',
-    'lodash'            : '/base/public/js/lib/lodash/lodash.compat',
-    'text'              : '/base/public/js/lib/requirejs-text/text'
+    'knockout'          : '/base/public/lib/knockout/knockout',
+    'knockout-postbox'  : '/base/public/lib/knockout-postbox/knockout-postbox.min',
+    'lodash'            : '/base/public/lib/lodash/lodash.compat',
+    'text'              : '/base/public/lib/requirejs-text/text'
   },
 
   // Make requirejs load all test files

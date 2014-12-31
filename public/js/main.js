@@ -5,9 +5,9 @@ require.config({
     'util'              : '/js/util',
 
     // Libraries
-    'knockout'          : '/js/lib/knockout/knockout',
-    'knockout-postbox'  : '/js/lib/knockout-postbox/knockout-postbox.min',
-    'lodash'            : '/js/lib/lodash/lodash.compat',
-    'text'              : '/js/lib/requirejs-text/text',
+    'knockout'          : '/lib/knockout/knockout',
+    'knockout-postbox'  : '/lib/knockout-postbox/knockout-postbox.min',
+    'lodash'            : '/lib/lodash/lodash.compat',
+    'text'              : '/lib/requirejs-text/text',
   }
 });
