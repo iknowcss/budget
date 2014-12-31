@@ -1,8 +1,8 @@
 var path = require('path');
 
 module.exports = function (requestedPath) {
-  var basePath = process.env.APP_DIR_FOR_CODE_COVERAGE ?
-      path.join('../../', process.env.APP_DIR_FOR_CODE_COVERAGE) :
+  var basePath = process.env.INSTRUMENTED_CODE_DIR ?
+      path.join('../../', process.env.INSTRUMENTED_CODE_DIR, '/app') :
       '../../app/';
   return require(path.join(basePath, requestedPath));
 };

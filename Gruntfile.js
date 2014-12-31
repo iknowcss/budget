@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 
     env: {
       coverage: {
-        APP_DIR_FOR_CODE_COVERAGE: 'test/coverage/instrument/app/'
+        INSTRUMENTED_CODE_DIR: 'test/coverage/instrument/'
       }
     },
 
@@ -91,10 +91,10 @@ module.exports = function (grunt) {
       }
     },
 
-    // - Istanbul server coverage ----------------------------------------------
+    // - Istanbul coverage -----------------------------------------------------
 
     instrument: {
-      files: ['app/**/*.js'],
+      files: ['app/**/*.js', 'public/js/**/*.js'],
       options: {
         lazy: false,
         basePath: 'test/coverage/instrument/'
@@ -136,7 +136,11 @@ module.exports = function (grunt) {
     }, 500);
   });
 
+  /// - Run server -------------------------------------------------------------
+
   grunt.registerTask('default', ['bower', 'develop', 'watch']);
+
+  /// - Unit test code ---------------------------------------------------------
 
   grunt.registerTask('test:ui', function () {
     grunt.config.set('karma.unit.singleRun', true);
@@ -147,6 +151,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['test:ui', 'test:server']);
 
+  /// - Istanbul coverage reporting --------------------------------------------
+
   grunt.registerTask('coverage', ['clean:coverage', 'env:coverage', 
-      'instrument', 'mochaTest', 'storeCoverage', 'makeReport']);
+      'instrument', 'test:ui', 'test:server', 'storeCoverage', 'makeReport']);
 };

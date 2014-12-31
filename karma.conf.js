@@ -1,4 +1,10 @@
+var path = require('path');
+
 module.exports = function (config) {
+  var instrumentedPath = process.env.INSTRUMENTED_CODE_DIR ?
+      path.join(process.env.INSTRUMENTED_CODE_DIR, 'public') :
+      'public';
+
   config.set({
     files       : [
       'public/js/lib/jquery/jquery.js',
