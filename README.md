@@ -6,6 +6,10 @@ A simple budget application. The server is a simple RESTful service written with
 Grunt commands
 --------------
 
+Set-up the development environment
+
+    npm install
+
 Start the app (default HTTP port 3000)
 
     grunt
