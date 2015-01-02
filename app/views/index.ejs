@@ -15,10 +15,26 @@
     });
   </script>
 
-  <section class="budget"
-      data-bind="component: {
-        name: 'categories',
-        params: categories
-      }"></section>
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="hidden-xs col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Income</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <section class="budget"
+          data-bind="component: {
+            name: 'categories',
+            params: categories
+          }"></section>
+      </div>
+
+    </div>
+  </div>
+
+
 
 <% include footer %>

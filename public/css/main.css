@@ -1,0 +1,36 @@
+.color-primary-0 { color: #3AC03A; }
+.color-primary-1 { color: #F6FCF6; }
+.color-primary-2 { color: #80DF80; }
+.color-primary-3 { color: #0B950B; }
+.color-primary-4 { color: #004C00; }
+
+header .navbar {
+  background-color: #0B950B;
+  border-color: #0B950B;
+}
+
+header .navbar a {
+  color: #ebebeb;
+}
+
+.sidebar {
+  background-color: #ebebeb;
+  position: fixed;
+  height: 100%;
+  top: 51px;
+}
+
+.sidebar ul li a {
+  padding: 10px;
+  color: #010101;
+}
+
+
+.sidebar ul {
+  margin: 0 -10px;
+}
+
+.main {
+  margin-top: 51px;
+  padding-top: 10px;
+}
