@@ -1,8 +1,16 @@
+/* - Colors ----------------------------------------------------------------- */
+
 .color-primary-0 { color: #3AC03A; }
 .color-primary-1 { color: #F6FCF6; }
 .color-primary-2 { color: #80DF80; }
 .color-primary-3 { color: #0B950B; }
 .color-primary-4 { color: #004C00; }
+
+/* - Base styles ------------------------------------------------------------ */
+
+body {
+  background-color: #F6FCF6;
+}
 
 header .navbar {
   background-color: #0B950B;
@@ -13,6 +21,10 @@ header .navbar a {
   color: #ebebeb;
 }
 
+header a.navbar-brand {
+  color: #F6FCF6;
+}
+
 .sidebar {
   background-color: #ebebeb;
   position: fixed;
@@ -20,17 +32,50 @@ header .navbar a {
   top: 51px;
 }
 
-.sidebar ul li a {
+.sidebar a {
   padding: 10px;
   color: #010101;
+  background-color: #004C00;
+  color: white;
 }
 
+.sidebar li a:hover {
+  background-color: #0B950B;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+  color: black;
+  background-color: #F6FCF6;
+}
 
 .sidebar ul {
-  margin: 0 -10px;
+  margin: 0 -15px;
 }
 
 .main {
   margin-top: 51px;
   padding-top: 10px;
+}
+
+/* - Category styles -------------------------------------------------------- */
+
+.budget-category {
+  background-color: white;
+  margin-bottom: 10px;
+  font-size: 200%;
+}
+
+.budget-category-head-total {
+  text-align: right;
+}
+
+.budget-category-body-line-item input[type="text"] {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.budget-category-body-line-item.active input[type="text"] {
+  /*background-color: red;*/
 }

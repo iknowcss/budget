@@ -1,12 +1,12 @@
 <!-- ko foreach: $data -->
 
 <div class="budget-category">
-  <div class="budget-category-head">
-    <div class="budget-category-head-title">
+  <div class="budget-category-head row">
+    <div class="budget-category-head-title col-xs-9">
       <i data-bind="css: 'icon-' + icon"></i>
       <span data-bind="text: description"></span>
     </div>
-    <div>
+    <div class="budget-category-head-total col-xs-3">
       <span data-bind="text: totalFormatted"></span>
     </div>
   </div>

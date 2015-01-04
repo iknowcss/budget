@@ -1,16 +1,17 @@
-<div class="budget-category-body-line-item">
-  <div class="line-item-description">
-    <input type="text"
+<div class="budget-category-body-line-item row"
+    data-bind="css: { active: mode() == 'edit' }">
+  <div class="line-item-description col-xs-6">
+    <input type="text" placeholder="Description"
         data-bind="hasFocus: descriptionHasFocus,
                    value: description,
                    event: { focus: startEdit }">
   </div>
-  <div class="line-item-amount">
+  <div class="line-item-amount col-xs-4">
     <input type="text"
         data-bind="value: amountFormatted,
                    event: { focus: startEdit }">
   </div>
-  <div class="line-item-frequency">
+  <div class="line-item-frequency col-xs-2">
     <span data-bind="text: frequency, visible: mode() == 'view'"></span>
     <select
         data-bind="visible: mode() == 'edit',
