@@ -13,8 +13,8 @@ body {
 }
 
 header .navbar {
-  background-color: #0B950B;
-  border-color: #0B950B;
+  background-color: #004C00;
+  border-color: #004C00;
 }
 
 header .navbar a {
@@ -35,7 +35,7 @@ header a.navbar-brand {
 .sidebar a {
   padding: 10px;
   color: #010101;
-  background-color: #004C00;
+  background-color: #0B950B;
   color: white;
 }
 
@@ -60,22 +60,70 @@ header a.navbar-brand {
 
 /* - Category styles -------------------------------------------------------- */
 
-.budget-category {
+.budget-category-box {
+  padding: 0 15px;
   background-color: white;
-  margin-bottom: 10px;
-  font-size: 200%;
+  margin: 0 -5px 10px -5px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.budget-category-head {
+  background-color: #0B950B;
+  color: white;
+  font-size: 1.5em;
 }
 
 .budget-category-head-total {
   text-align: right;
 }
 
+.budget-category-body {
+}
+
+/* - Line-item styles ------------------------------------------------------- */
+
 .budget-category-body-line-item input[type="text"] {
   border: none;
   outline: none;
   width: 100%;
+  padding: 5px 15px;
 }
 
-.budget-category-body-line-item.active input[type="text"] {
-  /*background-color: red;*/
+.budget-category-body-line-item select {
+  width: 100%;
+}
+
+.budget-category-body-line-item > div {
+  padding: 0;
+  border-top: 1px solid #ebebeb;
+  border-left: 1px solid #ebebeb;
+}
+
+.budget-category-body-line-item > div:first-child {
+  border-left: none;
+}
+
+/*
+.line-item-description input[type="text"] { background-color: cyan; }
+.line-item-amount input[type="text"] { background-color: lime; }
+.line-item-frequency { background-color: purple; }
+*/
+
+.line-item-amount input[type="text"] {
+  text-align: right;
+  padding-left: 1em;
+}
+
+.line-item-amount:before {
+  content: '$';
+  position: absolute;
+  margin: 0.37em;
+}
+
+.line-item-frequency {
+  padding: 5px !important;
+}
+
+.line-item-frequency select {
+  font-size: 14px;
 }

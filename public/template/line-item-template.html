@@ -6,12 +6,12 @@
                    value: description,
                    event: { focus: startEdit }">
   </div>
-  <div class="line-item-amount col-xs-4">
+  <div class="line-item-amount col-xs-3">
     <input type="text"
         data-bind="value: amountFormatted,
                    event: { focus: startEdit }">
   </div>
-  <div class="line-item-frequency col-xs-2">
+  <div class="line-item-frequency col-xs-3">
     <span data-bind="text: frequency, visible: mode() == 'view'"></span>
     <select
         data-bind="visible: mode() == 'edit',
