@@ -33,20 +33,32 @@ header a.navbar-brand {
 }
 
 .sidebar a {
-  padding: 10px;
-  color: #010101;
-  background-color: #0B950B;
-  color: white;
+  padding: 10px 20px !important;
+  background-color: #ebebeb;
+  color: black;
 }
 
 .sidebar li a:hover {
-  background-color: #0B950B;
+  /*background-color: #;*/
 }
 
 .sidebar li.active a,
 .sidebar li.active a:hover {
-  color: black;
   background-color: #F6FCF6;
+  font-weight: bold;
+  position: relative;
+}
+
+.sidebar li.active a:before {
+  content: '';
+  position: absolute;
+  display: block;
+  border: 10px solid transparent;
+  border-left: 10px solid black;
+  top: 10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
 }
 
 .sidebar ul {
