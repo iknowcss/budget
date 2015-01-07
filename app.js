@@ -1,15 +1,16 @@
 var express = require('express'),
-  config = require('./config/config'),
-  fs = require('fs'),
-  mongoose = require('mongoose');
+    fs = require('fs'),
+    mongoose = require('mongoose');
 
-// TODO
-// mongoose.connect(config.db);
-// var db = mongoose.connection;
-// db.on('error', function () {
-//   throw new Error('unable to connect to database at ' + config.db);
-// });
+var config = require('./config/config');
 
+mongoose.connect(config.db);
+var db = mongoose.connection;
+db.on('error', function () {
+  throw new Error('unable to connect to database at ' + config.db);
+});
+
+// TODO: Move this to a module
 var modelsPath = __dirname + '/app/models';
 fs.readdirSync(modelsPath).forEach(function (file) {
   if (/\.js$/.test(file)) {

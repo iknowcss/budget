@@ -2,6 +2,8 @@
 
 var request = require('request');
 
+var env = process.env.NODE_ENV || 'development';
+
 module.exports = function (grunt) {
   // show elapsed time at the end
   require('time-grunt')(grunt);
@@ -140,6 +142,14 @@ module.exports = function (grunt) {
   /// - Run server -------------------------------------------------------------
 
   grunt.registerTask('default', ['bower', 'develop', 'watch']);
+
+  /// - DB Tasks ---------------------------------------------------------------
+
+  grunt.registerTask('db:reset', function () {
+    if (env == 'development') {
+      require('./resource/development/db-reset')(this.async());
+    }
+  });
 
   /// - Unit test code ---------------------------------------------------------
 

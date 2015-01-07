@@ -1,13 +1,13 @@
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
+var express = require('express'),
+    fs = require('fs'),
+    path = require('path');
 
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compress = require('compression');
-var methodOverride = require('method-override');
+var favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    compress = require('compression'),
+    methodOverride = require('method-override');
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');

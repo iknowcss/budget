@@ -9,7 +9,7 @@ var config = {
       name: 'budget'
     },
     port: 3000,
-    db: 'mongodb://localhost/budget-development'
+    db: 'mongodb://localhost/iknowcss-budget-development'
     
   },
 
@@ -19,7 +19,7 @@ var config = {
       name: 'budget'
     },
     port: 3000,
-    db: 'mongodb://localhost/budget-test'
+    db: 'mongodb://localhost/iknowcss-budget-test'
     
   },
 
@@ -29,7 +29,7 @@ var config = {
       name: 'budget'
     },
     port: 3000,
-    db: 'mongodb://localhost/budget-production'
+    db: 'mongodb://localhost/iknowcss-budget-production'
     
   }
 };
